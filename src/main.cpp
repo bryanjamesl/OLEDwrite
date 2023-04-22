@@ -1,5 +1,4 @@
-// .This code works to write to the OLED, just hard coded but works!
-// test 
+// This code works to write to the OLED, just hard coded but works!
 
 #include <Arduino.h>
 #include <Wire.h>
