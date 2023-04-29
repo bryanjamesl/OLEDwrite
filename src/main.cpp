@@ -39,11 +39,6 @@ void setup()
 void loop() {
 
   Serial.println(" In void loop ");
-  delay(1000);
-  digitalWrite(pumpPin, HIGH);
-  delay(pumpOnTime);
-  digitalWrite(pumpPin, LOW);
-  delay(1000);
   runPump(pumpOnTime);
   delay(1000);
 
