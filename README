@@ -1,5 +1,7 @@
-This proj is just for testing my ability to write to the OLED
-It works, so to speak as I can hard code messages to write to the screen!
+This is code Bill H wrote.  I'm learning how it works to integrate it into "plant-watering"
+It works, so to speak as I can hard code messages to write to the screen.
     As of Jan 2023 and April 22 2023
+But I need to go beyond hard coding stuff to write 4-28-23
 
+4-28-23 Cleaned up code, set "Last" and "Next" in void setup 
     
