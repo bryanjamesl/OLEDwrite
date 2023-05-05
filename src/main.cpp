@@ -4,6 +4,11 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <SSD1306AsciiAvrI2c.h>
+#include <RTClib.h>  
+#include <SPI.h>
+
+RTC_DS1307 rtc;   
+DateTime now;  
 
 int pumpOnTime = 4 * 1000;                // pump runtime 
 int pumpPin = 8;                          // pin to drive the pump 
@@ -21,10 +26,12 @@ void runPump(int run) {
   delay(run);
   digitalWrite (pumpPin, LOW);
   printData (0, 6, "Pump Off");
+  printData(35, 1, String(now.minute()));
 }
 
 void setup() 
 {
+  Serial.begin(9600);
   oled.begin(&Adafruit128x64, 0x3C);      // start oled 64x128 0x3C(I2C address of the display)
   oled.setFont (TimesNewRoman16);         // font size/type
   oled.clear();
@@ -37,10 +44,14 @@ void setup()
 }
 
 void loop() {
-
-  Serial.println(" In void loop ");
-  runPump(pumpOnTime);
   delay(1000);
+  Serial.println("In void loop ");
+  runPump(pumpOnTime);
+  // 3 lines added below was to test adding the RTC to OLED code (needs more setup)
+  delay(1000);
+  Serial.println(String("hour:\t")+now.hour());
+  Serial.println(String("min:\t")+now.minute());
+  
 
 }
 
